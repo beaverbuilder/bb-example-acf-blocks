@@ -41,12 +41,20 @@ add_action( 'acf/init', function() {
 	$paths = glob( BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/*' );
 
 	foreach ( $paths as $path ) {
+
+		// Load the block
 		if ( file_exists( "$path/block.php" ) ) {
 			require_once "$path/block.php";
 		}
+
+		// Load the fields
 		if ( file_exists( "$path/json/fields.json" ) ) {
 			$fields = json_decode( file_get_contents( "$path/json/fields.json" ), 1 );
-			acf_add_local_field_group( $fields[0] );
+
+			// Only load if no fields exist in the database with this key
+			if ( empty( acf_get_fields( $fields[0]['key'] ) ) ) {
+				acf_add_local_field_group( $fields[0] );
+			}
 		}
 	}
 } );
