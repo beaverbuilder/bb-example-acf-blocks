@@ -35,12 +35,18 @@ add_action( 'block_categories_all', function( $categories ) {
 }, 10, 2 );
 
 /**
- * Load our example blocks.
+ * Load our example blocks and fields.
  */
 add_action( 'acf/init', function() {
-	require_once BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/example/block.php';
-	require_once BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/example/form.php';
+	$paths = glob( BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/*' );
 
-	require_once BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/testing/block.php';
-	require_once BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/testing/form.php';
+	foreach ( $paths as $path ) {
+		if ( file_exists( "$path/block.php" ) ) {
+			require_once "$path/block.php";
+		}
+		if ( file_exists( "$path/json/fields.json" ) ) {
+			$fields = json_decode( file_get_contents( "$path/json/fields.json" ), 1 );
+			acf_add_local_field_group( $fields[0] );
+		}
+	}
 } );
