@@ -1,0 +1,7 @@
+.bb-example-acf-block {
+    border: 1px solid #ccc;
+	padding: 20px;
+}
+.bb-example-acf-block > * {
+    margin: 0 0 10px;
+}

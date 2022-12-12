@@ -1,0 +1,19 @@
+# Ignore all .DS_Store files...
+.DS_Store
+
+# Ignore all Thumbs.db files...
+Thumbs.db
+
+# Ignore the node_modules folder...
+node_modules
+
+# ignore root vendor folder used for phpunit
+/vendor
+/composer.lock
+
+# Editor config
+.nova
+
+# Ignore js sourcemap files
+/js/build/*.map
+/css/build/*.map
