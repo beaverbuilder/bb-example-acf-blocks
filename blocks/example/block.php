@@ -11,5 +11,5 @@ acf_register_block_type( [
 	'icon'              => 'admin-appearance',
 	'render_template'   => BB_EXAMPLE_ACF_BLOCKS_DIR . 'blocks/example/template.php',
 	'enqueue_style'		=> BB_EXAMPLE_ACF_BLOCKS_URL . 'blocks/example/css/style.css',
-	'enqueue_script'	=> BB_EXAMPLE_ACF_BLOCKS_URL . 'blocks/example/js/script.js',
+	'enqueue_script'	=> BB_EXAMPLE_ACF_BLOCKS_URL . 'blocks/example/js/scripts.js',
 ] );
