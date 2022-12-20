@@ -19,6 +19,11 @@ define( 'BB_EXAMPLE_ACF_BLOCKS_VERSION', '0.1' );
 define( 'BB_EXAMPLE_ACF_BLOCKS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'BB_EXAMPLE_ACF_BLOCKS_URL', esc_url( trailingslashit( plugins_url( '/', __FILE__ ) ) ) );
 
+// bail if free version is installed or function does not exist, old version maybe?
+if ( ! function_exists( 'acf_register_block_type' ) ) {
+	return false;
+}
+
 /**
  * Add a custom block category for our example blocks.
  */
