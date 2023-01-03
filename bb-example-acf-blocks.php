@@ -19,7 +19,9 @@ define( 'BB_EXAMPLE_ACF_BLOCKS_VERSION', '0.1' );
 define( 'BB_EXAMPLE_ACF_BLOCKS_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'BB_EXAMPLE_ACF_BLOCKS_URL', esc_url( trailingslashit( plugins_url( '/', __FILE__ ) ) ) );
 
-// bail if free version is installed or function does not exist, old version maybe?
+/**
+ * Bail if ACF blocks aren't available.
+ */
 if ( ! function_exists( 'acf_register_block_type' ) ) {
 	return false;
 }
@@ -48,13 +50,15 @@ add_action( 'acf/init', function() {
 	foreach ( $paths as $path ) {
 
 		// Load the block
-		if ( file_exists( "$path/block.php" ) ) {
-			require_once "$path/block.php";
+		if ( file_exists( "$path/block.json" ) ) {
+			register_block_type( "$path/block.json" );
+		} else {
+			continue;
 		}
 
 		// Load the fields
-		if ( file_exists( "$path/json/fields.json" ) ) {
-			$fields = json_decode( file_get_contents( "$path/json/fields.json" ), 1 );
+		if ( file_exists( "$path/fields.json" ) ) {
+			$fields = json_decode( file_get_contents( "$path/fields.json" ), 1 );
 
 			// Only load if no fields exist in the database with this key
 			if ( empty( acf_get_fields( $fields[0]['key'] ) ) ) {

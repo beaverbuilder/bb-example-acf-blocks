@@ -1,0 +1,16 @@
+{
+    "name": "acf/bb-example-acf-block",
+    "title": "Example ACF Block",
+    "description": "An example ACF block that can be used in Beaver Builder.",
+    "category": "bb-example-acf-blocks",
+    "icon": "admin-appearance",
+    "script": "file:./js/scripts.js",
+    "style": "file:./css/styles.css",
+    "supports": {
+      "jsx": false
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template.php"
+    }
+}

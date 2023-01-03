@@ -1,0 +1,14 @@
+{
+    "name": "acf/bb-testing-acf-block",
+    "title": "Testing ACF Block",
+    "description": "An ACF block for testing all field types in Beaver Builder.",
+    "category": "bb-example-acf-blocks",
+    "icon": "admin-settings",
+    "supports": {
+      "jsx": false
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "template.php"
+    }
+}
