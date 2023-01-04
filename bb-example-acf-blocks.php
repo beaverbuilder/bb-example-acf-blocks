@@ -52,8 +52,6 @@ add_action( 'acf/init', function() {
 		// Load the block
 		if ( file_exists( "$path/block.json" ) ) {
 			register_block_type( "$path/block.json" );
-		} else {
-			continue;
 		}
 
 		// Load the fields
