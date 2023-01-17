@@ -12,5 +12,8 @@
     "acf": {
         "mode": "preview",
         "renderTemplate": "template.php"
+    },
+    "beaverBuilder": {
+        "group": "ACF Blocks"
     }
 }
