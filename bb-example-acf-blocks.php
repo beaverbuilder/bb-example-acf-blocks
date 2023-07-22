@@ -29,7 +29,7 @@ if ( ! function_exists( 'acf_register_block_type' ) ) {
 /**
  * Add a custom block category for our example blocks.
  */
-add_action( 'block_categories_all', function( $categories ) {
+add_filter( 'block_categories_all', function( $categories ) {
 	return array_merge(
 			$categories,
 			[
